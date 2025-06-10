@@ -9,7 +9,7 @@ body{
     font-family: Arial, Helvetica, sans-serif;
     line-height: 1.5; /*Esto Crea un margen de lineas para que sea mucho mas legible*/
     color: #B0365A;
-    background-image: url(FondoRamen-ezgif.com-gif-to-webp-converter-1.webp);
+    background-image: url(FondoRamen-ezgif.com-gif-to-webp-converter-1.webp); /* sigo sin comprender que hacer para que se vea el fondo en github Cuando en todas las pruebas FUNCIONA kñadjfkñad */
     background-size: cover;
     background-attachment: fixed; /*fija la imagen de fondo para que no se desplace con el contenido*/
     background-repeat: no-repeat;
