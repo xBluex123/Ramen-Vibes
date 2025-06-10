@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estilo.css">
+    <script src="../Proyecto_personal/app.js"></script>
+    <title>Ramen Vibes</title>
+</head>
+<!-- VAMOS A CREAR UNA PAGINA WEB TOTALMENTE RESPONSIVA.
+QUE QUIERE DECIR QUE FUNCIONARA EN TODO TIPO DE DISPOSITIVOS MÓVILES Y PC. -->
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <a href="#logoRamen"><img src="logoRamenn.png" alt="Logo de Ramen Vibes" style="width: 300px; height: 200px;"></a>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#inicio">INICIO</a></li>
+            <li><a href="reservas.html#reservas">RESERVAS</a></li>
+            <li><a href="carta.html#carta">CARTA</a></li>
+            <li><a href="index.html#acerca">ACERCA DE NOSOTROS</a></li>
+        </ul>
+        <button class="burger">
+            <!--span es un contenedor en linea que sirve para aplicar estilo al texto
+            o agrupar elementos en linea-->
+            <span></span>
+            <span></span>
+            <span></span>
+            <!--Este botón "SPAN" se le llama "Botón tipo hamburguesa" 
+            comúnmente utilizado en interfaces móviles para representar un menu oculto que al hacer click,
+            revela o despliega un menu de navegación.-->
+        </button>
+    </nav>
+
+    <header id="inicio" class="hero-section">
+        <h1>Bienvenido a RamenVibes</h1>
+    <p>Échale un vistazo a nuestros locales!</p>
+    <a href="#servicios" class="btn-primary">descubrir más</a>
+    </header>
+
+    <main>
+        <section id="servicios" class="cards-container">
+        <div class="cards">
+            <div class="card">
+                <h3><a href="reservas.html" class="btn-primary">Reservas</a></h3>
+                <p>Haz tu reserva y no te lo pierdas!</p>
+            </div>
+            <div class="card">
+                <h3><a href="carta.html" class="btn-primary">Carta</a></h3>
+                <p>Mira nuestros platos!</p>
+            </div>
+            <div class="card">
+                <h3><a href="dondeestamos.html" class="btn-primary">Donde estamos</a></h3>
+                <p>No te pierdas por el camino</p>
+            </div>
+                <div class="card">
+                    <h3><a href="quienessomos.html" class="btn-primary">¿Quienes somos?</a></h3>
+                    <p>Conoce al equipo!</p>
+                </div>
+        </div>
+    </section>
+    <!--ESTA "SECTION" ES PARA LA CREACIÓN DE UN FORMULARIO DE CONTACTO.-->
+    <section id="contacto" class="contact-section">
+        <h2>Algún evento especial? cuéntanoslo!</h2>
+        <form id="contact-form" method="POST" action="/send_email">
+<input type="text" id="nombre" name="nombre" placeholder="Nombre" required>
+            <input type="email" name="correo" placeholder="Correo Electronico">
+            <textarea name="mensaje" placeholder="Mensaje" required></textarea> 
+            <!-------- TEXTAREA PERMITE AL USUARIO HACER INPUT DE TEXTO------->
+            <button type="submit">Enviar</button>
+        </form>
+    </section>
+    <!----------------------------------------------------------------------------->
+    <!-- CONTENEDOR PARA MENSAJES FLASH-->
+    <div id="flash-messages" class="flash-messages"></div>
+    <section id="acerca" class="about-section">
+    <h2>¿Quieres trabajar con nosotros?</h2>
+    <p>Mándanos tu curriculum a <a href="mailto:cristianpruebasvscode@gmail.com">Ramenvibes@gmail.com</a></p>
+    </section>
+
+    </main>
+
+    <footer>
+            <div class="footer">
+                <p>&copy; 2025. Todos los derechos reservados.</p>
+            </div>
+            <div class="svg">
+                <p>
+                    <a href="http://jigsaw.w3.org/css-validator/check/referer">
+                        <img style="border:0;width:88px;height:31px"
+                            src="http://jigsaw.w3.org/css-validator/images/vcss"
+                            alt="¡CSS Válido!" />
+                    </a>
+                </p>
+
+                <p>
+                    <a href="http://jigsaw.w3.org/css-validator/check/referer">
+                        <img style="border:0;width:88px;height:31px"
+                            src="http://jigsaw.w3.org/css-validator/images/vcss-blue"
+                            alt="¡CSS Válido!" />
+                        </a>
+                    </p>
+            </div>
+    </footer>
+</body>
+</html>

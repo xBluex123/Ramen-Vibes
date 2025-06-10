@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estilo.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <title>Carta - Ramen Vibes</title>
+</head>
+<body>
+    <nav class="navbar">
+        
+        <div class="logo">
+            <a href="index.html"><img src="logoRamenn.png" alt="Logo de Ramen Vibes" style="width: 300px; height: 200px;"></a>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">INICIO</a></li>
+            <li><a href="reservas.html#reservas">RESERVAS</a></li>
+            <li><a href="carta.html#carta">CARTA</a></li>
+            <li><a href="index.html#acerca">ACERCA DE NOSOTROS</a></li>
+        </ul>
+        <button class="burger" aria-label="Menú de navegación"> <!--aria-label es una etiqueta que se usa para darle un nombre a un elemento que no tiene texto visible, mejora la accesibilidad-->
+            <!--span es un contenedor en linea que sirve para aplicar estilo al texto
+            o agrupar elementos en linea-->
+            <span></span>
+            <span></span>
+            <span></span>
+            <!--Este botón "SPAN" se le llama "Botón tipo hamburguesa" 
+            comúnmente utilizado en interfaces móviles para representar un menu oculto que al hacer click,
+            revela o despliega un menu de navegación.-->
+        </button>
+    </nav>
+    <!-- estos dos los pongo arriba para que las flechas ocupen el total del body
+    si no, se quedan dentro de la primera imagen-->
+
+
+    
+    <section class="carta-section"> 
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <!-- Slide 1 -->
+                <div class="swiper-slide">
+                    <img src="Mochi-2024-1.jpg" alt="Plato 1">
+                    <div class="info">
+                    </div>
+                </div>
+                <!-- Slide 2 -->
+                <div class="swiper-slide">
+                    <img src="Chizu_2023-1.jpg" alt="Plato 2">
+                    <div class="info">
+                    </div>
+                </div>
+                <!-- Slide 3 -->
+                <div class="swiper-slide">
+                    <img src="Mesa-de-trabajo-1-copia-8.jpg" alt="Plato 3">
+                    <div class="info">
+                    </div>
+                <!-- Añade más slides según sea necesario -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <nav class="navbar-bottom">
+        <ul class="nav-links-bottom">
+            <li><a href="entrantes.html">Entrantes</a></li>
+            <li><a href="bebidas.html">Bebidas</a></li>
+            <li><a href="postres.html">Postres</a></li>
+            <li><a href="carta.html">Ramen</a></li>
+        </ul>
+    </nav>
+    
+
+
+
+    <div class="swiper-button-prev"></div> <!-- flechas de navegación -->
+    <div class="swiper-button-next"></div>
+
+    
+
+    <!-- Añade las paginas-card -->
+    <div class="swiper-pagination"></div>
+    <script src="swiper.js"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="reservas.js"></script>
+    <script src="../Proyecto_personal/app.js"></script>
+</body>
+    <!--Carrusel de platos con fotos  sus ingredientes, flecha bidireccional ¿alérgenos?  -->
+
+</html>

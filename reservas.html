@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estilo.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/themes/dark.css">
+    <title>Reservas - Ramen Vibes</title>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <a href="index.html"><img src="logoRamenn.png" alt="Logo de Ramen Vibes" style="width: 300px; height: 200px;"></a>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html#inicio">INICIO</a></li>
+            <li><a href="reservas.html#reservas">RESERVAS</a></li>
+            <li><a href="carta.html#carta">CARTA</a></li>
+            <li><a href="index.html#acerca">ACERCA DE NOSOTROS</a></li>
+        </ul>
+        <button class="burger">
+            <!--span es un contenedor en linea que sirve para aplicar estilo al texto
+            o agrupar elementos en linea-->
+            <span></span>
+            <span></span>
+            <span></span>
+            <!--Este botón "SPAN" se le llama "Botón tipo hamburguesa" 
+            comúnmente utilizado en interfaces móviles para representar un menu oculto que al hacer click,
+            revela o despliega un menu de navegación.-->
+        </button>
+    </nav>
+
+    <section id="reservas" class="reservas-section">
+        <h2>Reserva una mesa</h2>
+        <form action="/send_email" method="POST">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" required>
+
+            <label for="correo">Correo:</label>
+            <input type="email" id="correo" name="correo" required>
+
+            <label for="telefono">Teléfono:</label>
+            <input type="tel" id="telefono" name="teléfono" required> 
+
+            <label for="fecha">Fecha:</label>
+            <input type="date" id="fecha" name="fecha" required>
+
+            <label for="hora">Hora:</label>
+            <input type="text" id="hora" name="hora" required> <!--Usamos type text en lugar de time para el Flatpickr-->
+
+            <label for="personas">Número de personas:</label>
+            <input type="number" id="personas" name="personas" required>
+
+            <button type="submit" class="btn-primary">Reservar</button>
+        </form>
+    </section>
+
+    <footer>
+        <div class="footer">
+            <p>&copy; 2025. Todos los derechos reservados.</p>
+        </div>
+        <div class="svg">
+            <p>
+                <a href="http://jigsaw.w3.org/css-validator/check/referer">
+                    <img style="border:0;width:88px;height:31px"
+                        src="http://jigsaw.w3.org/css-validator/images/vcss"
+                        alt="¡CSS Válido!" />
+                </a>
+            </p>
+
+            <p>
+                <a href="http://jigsaw.w3.org/css-validator/check/referer">
+                    <img style="border:0;width:88px;height:31px"
+                        src="http://jigsaw.w3.org/css-validator/images/vcss-blue"
+                        alt="¡CSS Válido!" />
+                    </a>
+                </p>
+        </div>
+</footer>
+
+
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+<script src="reservas.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Configurar Flatpickr
+        flatpickr("#fecha", {
+            minDate: "today",
+            dateFormat: "d-m-Y",
+            locale: {
+                firstDayOfWeek: 1 // Iniciar la semana en lunes
+            },
+            theme: "dark",
+            
+        });
+
+        // Configurar Flatpickr para la hora
+        flatpickr("#hora", {
+            enableTime: true,
+            noCalendar: true,
+            dateFormat: "H:i",
+            time_24hr: true,
+            minuteIncrement: 15,
+            minTime: "12:30" ,
+            maxTime: "23:00",
+            theme: "dark",
+            disable: [
+                    function(date) {
+                        var hour = date.getHours();
+                        var minute = date.getMinutes();
+                        return !(
+                            (hour === 12 && minute >= 30) ||
+                            (hour >= 13 && hour < 15) ||
+                            (hour === 15 && minute <= 15) ||
+                            (hour === 19 && minute >= 30) ||
+                            (hour >= 20 && hour < 23) ||
+                            (hour === 23 && minute <= 15)
+                        );
+                    }
+                ]
+        });
+
+        // Validar el formulario
+        document.querySelector('form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevenir el envío del formulario para validación
+            var personas = document.getElementById('personas').value;
+            if (personas > 6) {
+                alert('Para reservas de más de 6 personas, por favor llame para preguntar y reservar.');
+            }
+            // Limpiar el formulario
+            this.reset();
+            // Mostrar mensaje de éxito
+            alert('♥¡Reserva hecha correctamente. Nos vemos pronto!♥');
+        });
+    });
+</script>
+<footer>
+    <div class="footer">
+        <p>&copy; 2025. Todos los derechos reservados.</p>
+    </div>
+</footer>
+</body>
+</html>

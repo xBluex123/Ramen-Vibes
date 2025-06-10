@@ -1,0 +1,1046 @@
+/*Esto es un RESET GENERAL PARA ELIMINAR MARGENES Y RELLENOS PREDETERMINADOS CON MARGIN Y PADDING */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /*el border-box hace que incluya bordes y rellenos en las dimensiones
+    para evitar que la pagina se des encuadre al mirarlo desde algún dispositivo diferente ej pc-móvil*/
+}
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.5; /*Esto Crea un margen de lineas para que sea mucho mas legible*/
+    color: #B0365A;
+    background-image: url(../Proyecto_personal/FondoRamen-ezgif.com-gif-to-webp-converter-1.webp);
+    background-size: cover;
+    background-attachment: fixed; /*fija la imagen de fondo para que no se desplace con el contenido*/
+    background-repeat: no-repeat;
+    background-position: center; /*centra la imagen de fondo*/
+    margin: -80px 0 90px 0; /*margen superior negativo para que la imagen de fondo se vea bien*/
+    width: 100%; /*Asegura que el ancho de la página sea del 100%*/
+    height: 100vh; /*Asegura que la página ocupe toda la altura de la ventana*/
+    overflow-x: hidden; /*evita que la página se desplace horizontalmente*/
+}
+
+.svg { 
+    justify-content: space-between;
+    align-items: center;
+    display: flex;
+    opacity: 50%;
+}
+/*Barra del navegador o NavBar*/
+.navbar {
+    display: flex; /*Flex para organizar elementos en linea*/
+    justify-content: space-between;  /*Separarlos de los margenes*/
+    align-items: center; /*Centrarlos*/
+    padding: 1rem 1rem; /*La unidad REM es  el tamaño de la letra raíz(rootem) toma el tamaño del elemento raíz
+    del html, lo que significa que el tamaño de letra no aumenta en cada nivel sucesivo de anidamiento (1rem=16px.2rem=32px...*/
+    background: #031B31;
+    color: white;
+    position: sticky; /*fijar la barra en la parte superior*/
+    top: 0;
+    z-index: 1000; /*un valor alto para asegurar que quede sobre otros elementos*/
+    height: 12rem;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.navbar .logo { 
+    font-size: 3rem;
+    font-weight: bold;
+    color: rgba(255, 255, 255, 0.952);
+}
+.nav-links {
+    list-style: none; /*Eliminar los puntos de navegación*/
+    display: flex; /*organiza los elementos en horizontal*/
+    gap: 1rem; /*define el espacio entre los elementos del nav*/
+}
+.nav-links a{
+    text-decoration: none; /*añadir o eliminar subrayados, cursivas, etc.*/
+    color: #B0365A;
+    transition: color 0.3s; /*añade transición del color a los botones al pasar el ratón por ellos*/
+}
+.nav-links a:hover{
+    color:goldenrod
+}
+
+.burger{
+    display: none;
+    flex-direction: column;
+    gap: 0.3rem;
+    cursor: pointer;
+}
+.burger span{ /*Diseño rectangular y configura el cursor para que parezca interactivo cuando se pase sobre el*/
+    width: 25px;
+    height: 3px;
+    background: #000000bd;
+}
+/*Pagina principal -Hero section*/
+.hero-section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /* Asegura que la sección ocupe toda la altura de la ventana */
+    background: #000000b7 no-repeat center/cover; /*con la propiedad cover según la imagen del fondo
+    se escala para cubrir completamente el contenido del body.
+    no-repeat evita que la imagen del fondo se repita*/
+    color: #B0365A;
+    text-align: center;
+    padding: 2rem;
+}
+.hero-section h1{
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+}
+.hero-section p{
+    font-size: 1.5rem;
+    margin-bottom: 2rem;/* Ajusta el margen inferior */
+}
+.btn-primary{
+    background: #B0365A;
+    color: #03192E;
+    padding: 0.8rem 1.8rem;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 50px;
+    transition: background 0.3s, transform 0.3s;
+    box-shadow: 0 4px 6px black; /*le puedes poner 20px en vez de 6px para crear fugas de color en la sombra*/
+}
+.btn-primary:hover{
+    background: goldenrod;
+    transform: translateY(-3px);
+}
+
+@media (max-width: 768px) {
+    .hero-section h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero-section p {
+        font-size: 1.2rem;
+    }
+
+    .btn-primary {
+        font-size: 1rem;
+        padding: 0.6rem 1.2rem;
+    }
+}
+/*Sección de tarjetas*/
+.card-container {
+    padding: 3rem;
+    background: #f9f9f9;
+}
+.card-container h2{
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 2.5rem;
+    color: black;
+}
+.cards{ /*Este código crea un contenedor de grid flexible que ajusta automáticamente el número de columnas para que cada una tenga un tamaño mínimo de 200px, pero puede expandirse para ocupar el espacio disponible. Además, establece un espacio de 2rem entre los elementos del grid.*/
+    display: grid; /*grid básicamente hace que donde se aplica sera en modo rejilla (grid)
+                se organizara en una cuadricula en lugar de apilarse en una sola fila o columna*/
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /*template define el comportamiento de las columnas. AUTOFIT hace que las columnas se ajusten en función del tamaño*/
+    /*minmax establece el tamaño mínimo de 200px y ancho máximo de 1fracción(fr) del espacio disponible. FR distribuye el espacio de forma proporcional entre columnas.*/
+    gap: 2rem;
+}
+.card{
+    background: #03192E;
+    border-radius: 100px 100px 0px 0px;
+    box-shadow: 0 10px 8px rgba(0, 0, 0, 0.1);/*si quisiéramos añadir profundidad al botón, cambiamos 4px por 10px* y quitamos rgba.*/
+    overflow: hidden;
+    text-align: center;
+    transition: transform 0.3s;
+    color: #B0365A;
+    border-top-style: double; /*hace que las cartas sobresalgan por arriba con un efecto de doble linea*/
+}
+.card:hover{
+    transform: scale(1.10);
+}
+.card img{
+    width: 100%;
+    height: auto;
+}
+.card h3{
+    margin: 1rem 0rem 1rem 0rem;
+    font-size: 1.3rem;
+    padding: 1rem 0rem 1rem 0rem;
+}
+.card p{
+    padding: 1rem 0rem 1rem 0rem;
+    font-size: 1rem;
+}
+
+/* -------------------------Sección de reservas------------------------------------ */
+.reservas-section {
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    max-width: 600px;
+    margin: 100px auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.reservas-section h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #B0365A;
+}
+
+.reservas-section form {
+    display: flex;
+    flex-direction: column;
+}
+
+.reservas-section label {
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.reservas-section input {
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #B0365A;
+    border-radius: 20px;
+    font-size: 1rem;
+}
+
+.reservas-section .btn-primary {
+    padding: 10px;
+    background-color: #B0365A;
+    color: rgb(255, 255, 255);
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.5s ease;
+
+}
+
+.reservas-section .btn-primary:hover {
+    background-color: goldenrod;
+    color: #000000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transform: translateY(-3px);
+    transition: transform 0.5s ease;
+}
+/* Estilos personalizados para Flatpickr */
+.flatpickr-calendar {
+    --flatpickr-primary-color: #B0365A;
+}
+
+.flatpickr-day {
+    color: var(--flatpickr-primary-color);
+}
+
+.flatpickr-day:hover,
+.flatpickr-day:focus {
+    background: var(--flatpickr-primary-color);
+    color: goldenrod;
+    
+}
+
+.flatpickr-day.today {
+    background: var(--flatpickr-primary-color);
+    color: white;
+}
+
+.flatpickr-day.selected {
+    background: var(--flatpickr-primary-color);
+    color: white;
+}
+/*-----------------------Sección de carta y swiper-------------------*/
+
+
+/*tuve el problema con el fondo, ya que no quería tener que cambiar el fondo y inventar algo nuevo para meter el carrusel de fotos de la carta,
+asi que decidí añadir toda la información en tarjetas del plato y estas imágenes que fueran el carrusel con un padding de 150px*/
+.carta-section {
+    text-align: center;
+    padding: 50px 100px; 
+    background-color: rgba(255, 255, 255, 0); /*el 0 es la transparencia*/
+    border-radius: 50px; 
+    max-width: 800px;
+    margin: 50px auto;
+
+    
+}
+/* Barra de navegación inferior----------------------------------------------- */
+.navbar-bottom { 
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #03192E;
+    color: goldenrod;
+    text-align: center;
+    padding: 10px 0;
+    z-index: 1000;
+}
+.nav-links-bottom {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.nav-links-bottom li {
+    margin: 0 5rem;
+}
+
+.nav-links-bottom a {
+    color: #B0365A;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.nav-links-bottom a:hover {
+    color: goldenrod;
+    transition: color 0.3s ease-in-out;
+} 
+/* Barra de navegación inferior ----------------------------------------------*/
+
+
+
+
+
+
+/* Contenedor principal del Swiper */
+.swiper-wrapper-container {
+    position: fixed; /* Flex debería ser supuestamente */
+    width: 100%;  /* Ajusta el ancho según tu diseño */
+    max-width: 100%; /* Ajusta el ancho máximo según tu diseño */
+    margin: 0 auto;
+
+}
+.swiper-container {
+    width: 100%;
+    height: 500px;
+    position: relative;
+}
+
+.swiper-wrapper {
+    display: flex;
+}
+
+.swiper-slide {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+.swiper-slide img { 
+    height: auto;
+    object-fit: contain; /* Ajusta la imagen al tamaño del contenedor */ /*CAMBIAR ESTO PROBAR@@@@@@@@@@@@@@@@@@@@@@@@@@@@*/
+    transition: transform 0.3s ease-in-out; /*añade transición al pasar el ratón por la imagen*/
+    width: 90%;
+    border-radius: 50px;
+    box-shadow: 0 4px 8px rgb(0, 0, 0); /*le puedes poner 20px en vez de 8px para crear fugas de color en la sombra*/
+}
+
+/*----------------------------------------------------------*/
+.swiper-slide-entrantes img {
+
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50px;
+    box-shadow: 0 4px 8px rgb(0, 0, 0);
+    transition: transform 0.3s ease-in-out;
+}
+
+.carta-entrantes img:hover {
+    transform: scale(1.1); /* Aumenta el tamaño de la imagen al pasar el ratón por encima */
+
+}
+
+.carta-entrantes {
+    text-align: center;
+    padding: 50px 100px;
+    max-width: 800px;
+    margin: 50px auto;
+}
+
+
+/*----------------------------------------------------------*/
+.swiper-slide img:hover {
+    transform: scale(1.1); /* Aumenta el tamaño de la imagen al pasar el ratón por encima */
+
+}
+
+.swiper-slide .info {
+    margin-top: 10px;
+    text-align: left; 
+}
+
+/* Flechas de navegación */
+.swiper-button-prev,
+.swiper-button-next {
+    position: absolute; 
+    top: 50%; 
+    transform: translateY(100%); 
+    width: 40px;
+    height: 40px; 
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border-radius: 50%;
+    z-index: 10;
+    cursor: pointer;
+    display: flex; 
+}
+
+/* Flecha anterior */
+.swiper-button-prev {
+    left: 10px; /* Posición fuera del contenedor */
+}
+/* Flecha siguiente */
+.swiper-button-next {
+    right: 10px; /* Posición fuera del contenedor */
+}
+
+/* Estilos para las flechas al pasar el mouse */
+.swiper-button-prev:hover,
+.swiper-button-next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+
+@media (max-width: 768px) {
+    .swiper-button-next,
+    .swiper-button-prev {
+        width: 30px; /* Flechas más pequeñas en móviles */
+        height: 30px;
+    }
+    
+    .swiper-button-next {
+        right: 5px; /* Más cerca del borde en móviles */
+    }
+    .swiper-button-prev {
+        left: 5px; /* Más cerca del borde en móviles */
+    }
+}
+
+
+/*------------------------------------Sección de contacto-----------------------------------*/
+.contact-section{
+    text-align: center;
+}
+.contact-section h2{
+    margin-bottom: 1.5rem;
+    font-size: 2.5rem;
+    text-align: center;
+    background: #03192E;
+    border-radius: 0px 0px 100px 100px;
+    border-bottom-style: double;
+}
+#contact-form{
+    display: inline-flex; /*ESTA PUTA BASURA DISPLAY HACE QUE EL TEXTO SE CENTRE (INLINE-FLEX)
+                        NORMALMENTE LO TENGO EN display: flex;*/
+    flex-direction: column;
+    gap: 1.5rem;
+    max-width: 500px;
+    margin-bottom: 1.5rem;
+    padding: 0 1rem 1rem;
+}
+#contact-form input, #contact-form textarea {
+    padding: 1rem;
+    border: 2px solid #B0365A;
+    border-radius: 100px;
+    outline: none;
+    
+}
+
+#contact-form button {
+    position: relative;
+    background: rgba(0, 0, 0, 0.726);
+    border-color: #B0365A;
+    color: white;
+    padding: 1rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 50px;
+    overflow: hidden; /* Asegura que el pseudo-elemento no se desborde */
+    transition: background 0.5s;
+    z-index: 1; /* Asegura que el texto esté por encima del pseudo-elemento */
+}
+
+#contact-form button::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(43deg, #03192E 0%, #B0365A 46%, goldenrod 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    z-index: -1; /* Asegura que el pseudo-elemento esté detrás del texto */
+}
+
+#contact-form button:hover::before {
+    opacity: 1;
+}
+
+#contact-form button:hover {
+    background: transparent; /* Hace que el fondo del botón sea transparente para que se vea el gradiente */
+    color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transform: translateY(-3px);
+    transition: transform 0.5s ease;
+}
+
+#contact-form button span {
+    position: relative;
+    z-index: 1; /* Asegura que el texto esté por encima del pseudo-elemento */
+}
+/*Animación de carga*/
+#contact-form button.loading{
+    background: #ccc;
+    cursor: not-allowed;
+    position: relative;
+}                   /*el pseudo-elemento after permite añadir contenido visual sin alterar el HTML*/
+#contact-form button.loading::after{ /*es un pseudo-elemento que se crea después del contenido del botón*/
+    content:""; /*el contenido que se insertará en el pseudo-elemento, es este caso cadena vacía pero podría ser un "Gracias por el mensaje" o algo asi.*/
+    position: absolute; /*coloca el elemento de manera ABSOLUTA con respecto al contenedor mas cercano. Permite ubicar el spinner en una posición especifica dentro del botón*/
+    top: 50%;
+    left: 50%; /*estas 2 centran el botón. y el TRANSFORM hacen lo mismo pero en profundidad digamos*/
+    transform: translate(-50%, -50%);
+    border: 3px solid #B0365A;
+    border-radius: 50%; /*hace que sea un circulo perfecto ya que convierte las esquinas cuadradas en redondeada*/
+    width: 20px;
+    height: 20px;
+    animation: spin 1s linear infinite; /*aplica animación. spin nombre de la animación. 1s duración. 
+    linear=velocidad constante. infinite=efecto de carga continuo (circular por ejemplo)*/
+}
+
+@keyframes spin{ /*KEYFRAMES se usa para definir animaciones. Spin es el nombre de la animación*/
+    0% {
+        transform: translate(-50%, -50%) rotate(0deg); /*indica que al principio de la animación el elemento no esta rotado*/
+    }
+    100%{
+        transform: translate(-50%,-50%) rotate(360deg); /*indica que al final de la animación el elemento habrá rotado 360grados(1 vuelta)*/
+    }
+}
+
+/*--------------------------------Sección acerca de nosotros---------------------------*/
+.about-section {
+    padding: 3rem;
+    text-align: center;
+    background: #03192E;
+    color: #B0365A;
+}
+.about-section h2{
+    margin-bottom: 1.5rem;
+    font-size: 2.5rem;
+}
+.about-section p{
+    font-size: 1.3rem;
+}
+
+/*------------------SECCIÓN DONDE ESTAMOS UBICACIONES----------------*/
+#donde-estamos {
+    padding: 20px;
+    background-color: #03192E;
+    text-align: center;
+    margin: 50px auto;
+}
+
+#donde-estamos h2 {
+    margin-bottom: 20px;
+}
+
+.ubicaciones {
+    display: flex;
+    justify-content: space-around;
+}
+
+.ubicacion {
+    background-color: goldenrod;
+    color: #000000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transform: translateY(-3px);
+    transition: transform 0.5s ease;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgb(245, 1, 1);
+    width: 45%;
+}
+
+.ubicacion h3 {
+    margin-top: 0;
+    color: #03192E;
+}
+
+.ubicacion p {
+    margin: 5px 0;
+    color: #03192E;
+}
+
+#map {
+    height: 400px;
+    width: 100%;
+}
+
+
+
+
+
+
+
+
+
+/* Pie de pagina */
+footer {
+    position: fixed;
+    bottom: 0; /*debería de ser 0 pero me sale en el body..asi que 1.*/
+    background: rgba(0, 0, 0, 0);
+    color: #B0365A;
+    right: 0;
+    left: 0;
+    padding: 0rem 0rem;
+}
+
+.flash-messages{
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    z-index: 1000;
+    width: auto;
+}
+
+.alert{
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    color: white;
+    font-size: 14px;
+    animation: fade-in-out 5s forwards; /*aplica animación llamada fade-in-out que se ejecutara durante 5sec
+    forwards indica que después de que la animación termine, mantendrá su estado final(no volverá a iniciar)*/
+}
+
+.alert.success {
+    background-color: #B0365A;
+    border-radius: 50px;
+}
+
+.alert.danger{
+    background-color: orangered;
+}
+
+/*Animación para desaparecer el mensaje*/
+
+@keyframes fade-in-out {
+    0% {opacity: 1;}
+    80% {opacity: 1;}
+    100% {opacity: 0;}
+}
+
+/*Diseño Responsivo*/
+@media(max-width: 768px) {
+    .nav-links{
+        display: none;
+        flex-direction: column;
+    }
+    .nav-links.active {
+        display: flex;
+        background: #031B31;
+        position: absolute;
+        top: 100%;
+        right: 0;
+        left: 0;
+        padding: 1rem;
+        border-radius: 0px 0px 50px 50px;
+    }
+
+    .burger {
+        display: flex;
+    }
+
+    .navbar
+    {
+        flex-direction: column;
+        align-items: center;
+        height: auto;
+        padding: 0.1rem;
+    }
+    .swiper-container {
+        height: auto;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: flex;
+    }
+}
+
+/*------------------Estilos para el carrusel de fotos de la carta--------------------------*/
+
+/*funciona regular en móvil xd */
+.container {
+    position: relative; /*posición relativa para que los elementos hijos se posicionen de forma absoluta con respecto a este*/
+    margin: 15rem 0 0 50rem;
+    width: 20rem;
+    height: 30rem; 
+    transition: 200ms; 
+}
+
+.container:active {
+    width: 180px;
+    height: 245px;
+}
+
+#card {
+    position: absolute; 
+    inset: 0; /*establece los bordes del elemento*/
+    z-index: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    transition: 700ms; 
+    background-color: #03192E;
+}
+
+.subtitle {
+    transform: translateY(160px); /* desplazamiento hacia arriba*/
+    background: linear-gradient(43deg, rgb(65, 88, 208) 0%, rgb(200, 80, 192) 46%, rgb(255, 204, 112) 100%);
+    text-align: center;
+    width: 100%;
+}
+
+.title {
+    text-align: center;
+    opacity: 0;
+    transition-duration: 300ms;
+    transition-timing-function: ease-in-out;
+    transition-delay: 100ms;
+    position: absolute;
+    font-size: x-large;
+    font-weight: bold;
+    font-weight: 100;
+    font-weight: bolder;
+    width: 100%;
+    height: 100%;
+    color: rgb(0, 0, 0);
+    background: linear-gradient(43deg, rgb(65, 88, 208) 0%, rgb(80, 122, 200) 46%, rgb(255, 204, 112) 100%);
+    background-image: url(../Proyecto_personal/yomismo.jpg);
+    background-size: cover;
+    background-attachment: fixed; /*fija la imagen de fondo para que no se desplace con el contenido*/
+    background-position: center;
+    border-radius: 20px;
+}
+.tracker:hover ~ #card .title {
+    opacity: 1;
+}
+
+#prompt { 
+    bottom: 250px;
+    left: 12px;
+    z-index: 20;
+    font-size: 20px;
+    font-weight: bold;
+    transition: 300ms ease-in-out;
+    position: absolute;
+    max-width: 110px;
+    color: goldenrod;
+}
+
+.tracker {
+    position: absolute;
+    z-index: 200;
+    width: 100%;
+    height: 100%;
+}
+
+.tracker:hover {
+    cursor: pointer;
+}
+
+.tracker:hover ~ #card #prompt {
+    opacity: 0;
+}
+
+.tracker:hover ~ #card {
+    transition: 300ms;
+    filter: brightness(1.1);
+}
+
+.container:hover #card::before {
+    transition: 200ms;
+    content: '';
+    opacity: 80%;
+    
+}
+
+.canvas {
+    perspective: 800px; /*establece la perspectiva de la vista 3D*/
+    inset: 0; /*establece los bordes del elemento*/
+    z-index: 200; /*establece la posición del elemento en el eje Z*/
+    position: absolute; /*establece la posición del elemento*/
+    display: grid; /*establece el contenedor como una cuadrícula*/
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr; /*establece el número de columnas y su tamaño*/
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr; /*establece el número de filas y su tamaño*/
+    gap: 0px 0px; /*establece el espacio entre las filas y las columnas*/
+    grid-template-areas: "tr-1 tr-2 tr-3 tr-4 tr-5" /*establece el nombre de las áreas de la cuadrícula*/
+    "tr-6 tr-7 tr-8 tr-9 tr-10"
+    "tr-11 tr-12 tr-13 tr-14 tr-15"
+    "tr-16 tr-17 tr-18 tr-19 tr-20"
+    "tr-21 tr-22 tr-23 tr-24 tr-25";
+}
+
+#card::before {
+    content: ''; /*añade contenido antes del contenido del elemento*/
+    background: linear-gradient(43deg, rgb(65, 88, 208) 0%, rgb(200, 80, 192) 46%, rgb(255, 204, 112) 100%); 
+    filter: blur(2rem); /*aplica un desenfoque al fondo*/
+    opacity: 100%; 
+    width: 100%;
+    height: 100%;
+    position: absolute; /*establece la posición del elemento*/
+    z-index: -1; /*establece la posición del elemento en el eje Z */
+    transition: 200ms; /*establece la duración de la transición*/
+}
+
+.tr-1 { 
+    grid-area: tr-1;  /*establece el área de la cuadrícula en la que se encuentra el elemento*/
+}
+
+.tr-2 {
+    grid-area: tr-2;
+}
+
+.tr-3 {
+    grid-area: tr-3;
+}
+
+.tr-4 {
+    grid-area: tr-4;
+}
+
+.tr-5 {
+    grid-area: tr-5;
+}
+
+.tr-6 {
+    grid-area: tr-6;
+}
+
+.tr-7 {
+    grid-area: tr-7;
+}
+
+.tr-8 {
+    grid-area: tr-8;
+}
+
+.tr-9 {
+    grid-area: tr-9;
+}
+
+.tr-10 {
+    grid-area: tr-10;
+}
+
+.tr-11 {
+    grid-area: tr-11;
+}
+
+.tr-12 {
+    grid-area: tr-12;
+}
+
+.tr-13 {
+    grid-area: tr-13;
+}
+
+.tr-14 {
+    grid-area: tr-14;
+}
+
+.tr-15 {
+    grid-area: tr-15;
+}
+
+.tr-16 {
+    grid-area: tr-16;
+}
+
+.tr-17 {
+    grid-area: tr-17;
+}
+
+.tr-18 {
+    grid-area: tr-18;
+}
+
+.tr-19 {
+    grid-area: tr-19;
+}
+
+.tr-20 {
+    grid-area: tr-20;
+}
+
+.tr-21 {
+    grid-area: tr-21;
+}
+
+.tr-22 {
+    grid-area: tr-22;
+}
+
+.tr-23 {
+    grid-area: tr-23;
+}
+
+.tr-24 {
+    grid-area: tr-24;
+}
+
+.tr-25 {
+    grid-area: tr-25;
+}
+
+.tr-1:hover ~ #card { /*establece el comportamiento del elemento al pasar el ratón por encima*/
+    transition: 125ms ease-in-out;
+    transform: rotateX(20deg) rotateY(-10deg) rotateZ(0deg); /*establece la rotación del elemento en los ejes X, Y y Z*/
+}
+
+.tr-2:hover ~ #card {
+    transition: 125ms ease-in-out;
+    transform: rotateX(20deg) rotateY(-5deg) rotateZ(0deg);
+}
+
+.tr-3:hover ~ #card {
+    transition: 125ms ease-in-out;
+    transform: rotateX(20deg) rotateY(0deg) rotateZ(0deg);
+}
+
+.tr-4:hover ~ #card {
+    transition: 125ms ease-in-out;
+    transform: rotateX(20deg) rotateY(5deg) rotateZ(0deg);
+}
+
+.tr-5:hover ~ #card {
+    transition: 125ms ease-in-out;
+    transform: rotateX(20deg) rotateY(10deg) rotateZ(0deg);
+}
+
+.tr-6:hover ~ #card {
+    transition: 125ms ease-in-out;
+    transform: rotateX(10deg) rotateY(-10deg) rotateZ(0deg);
+}
+
+.tr-7:hover ~ #card {
+    transition: 125ms ease-in-out;
+    transform: rotateX(10deg) rotateY(-5deg) rotateZ(0deg);
+}
+
+.tr-8:hover ~ #card {
+    transition: 125ms ease-in-out;
+    transform: rotateX(10deg) rotateY(0deg) rotateZ(0deg);
+}
+
+.tr-9:hover ~ #card {
+    transition: 125ms ease-in-out;
+    transform: rotateX(10deg) rotateY(5deg) rotateZ(0deg);
+}
+
+.tr-10:hover ~ #card {
+    transition: 125ms ease-in-out;
+    transform: rotateX(10deg) rotateY(10deg) rotateZ(0deg);
+}
+
+.tr-11:hover ~ #card {
+    transition: 125ms ease-in-out;
+    transform: rotateX(0deg) rotateY(-10deg) rotateZ(0deg);
+}
+
+.tr-12:hover ~ #card {
+    transition: 125ms ease-in-out;
+    transform: rotateX(0deg) rotateY(-5deg) rotateZ(0deg);
+}
+
+.tr-13:hover ~ #card {
+    transition: 125ms ease-in-out;
+    transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+}
+
+.tr-14:hover ~ #card {
+    transition: 125ms ease-in-out;
+    transform: rotateX(0deg) rotateY(5deg) rotateZ(0deg);
+}
+
+.tr-15:hover ~ #card {
+    transition: 125ms ease-in-out;
+    transform: rotateX(0deg) rotateY(10deg) rotateZ(0deg);
+}
+
+.tr-16:hover ~ #card {
+    transition: 125ms ease-in-out;
+    transform: rotateX(-10deg) rotateY(-10deg) rotateZ(0deg);
+}
+
+.tr-17:hover ~ #card {
+    transition: 125ms ease-in-out;
+    transform: rotateX(-10deg) rotateY(-5deg) rotateZ(0deg);
+}
+
+.tr-18:hover ~ #card {
+    transition: 125ms ease-in-out;
+    transform: rotateX(-10deg) rotateY(0deg) rotateZ(0deg);
+}
+
+.tr-19:hover ~ #card {
+    transition: 125ms ease-in-out;
+    transform: rotateX(-10deg) rotateY(5deg) rotateZ(0deg);
+}
+
+.tr-20:hover ~ #card {
+    transition: 125ms ease-in-out;
+    transform: rotateX(-10deg) rotateY(10deg) rotateZ(0deg);
+}
+
+.tr-21:hover ~ #card {
+    transition: 125ms ease-in-out;
+    transform: rotateX(-20deg) rotateY(-10deg) rotateZ(0deg);
+}
+
+.tr-22:hover ~ #card {
+    transition: 125ms ease-in-out;
+    transform: rotateX(-20deg) rotateY(-5deg) rotateZ(0deg);
+}
+
+.tr-23:hover ~ #card {
+    transition: 125ms ease-in-out;
+    transform: rotateX(-20deg) rotateY(0deg) rotateZ(0deg);
+}
+
+.tr-24:hover ~ #card {
+    transition: 125ms ease-in-out;
+    transform: rotateX(-20deg) rotateY(5deg) rotateZ(0deg);
+}
+
+.tr-25:hover ~ #card {
+    transition: 125ms ease-in-out;
+    transform: rotateX(-20deg) rotateY(10deg) rotateZ(0deg);
+}
+/*------------------ya veremos si esto sirve de algo--------------------------*/
+
+.noselect {
+    -webkit-touch-callout: none;  
+     /* iOS Safari */
+    -webkit-user-select: none;
+     /* Safari */
+     /* Konqueror HTML */
+    -moz-user-select: none;
+     /* version vieja de Firefox */
+    -ms-user-select: none;
+     /*Internet Explorer/Edge */
+    user-select: none;
+    /* version Non-prefixed y actuales 
+                                        soporte para Chrome, Edge, Opera y Firefox  */ 
+}
+
+
+
+/*------------------ya veremos si esto sirve de algo--------------------------*/

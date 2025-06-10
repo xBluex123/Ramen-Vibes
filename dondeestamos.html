@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>  
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estilo.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <title>Donde estamos</title>
+    <nav class="navbar">
+        
+        <div class="logo">
+            <a href="index.html"><img src="logoRamenn.png" alt="Logo de Ramen Vibes" style="width: 300px; height: 200px;"></a>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html#inicio">INICIO</a></li>
+            <li><a href="reservas.html#reservas">RESERVAS</a></li>
+            <li><a href="carta.html#carta">CARTA</a></li>
+            <li><a href="index.html#acerca">ACERCA DE NOSOTROS</a></li>
+        </ul>
+        <button class="burger">
+            <!--span es un contenedor en linea que sirve para aplicar estilo al texto
+            o agrupar elementos en linea-->
+            <span></span>
+            <span></span>
+            <span></span>
+            <!--Este botón "SPAN" se le llama "Botón tipo hamburguesa" 
+            comúnmente utilizado en interfaces móviles para representar un menu oculto que al hacer click,
+            revela o despliega un menu de navegación.-->
+        </button>
+    </nav>
+</head>
+<body>
+    <section id="donde-estamos">
+        <h2>¿Dónde estamos?</h2>
+        <div class="ubicaciones">
+            <div class="ubicacion">
+                <h3>Local 1</h3>
+                <p>Dirección:Plaza de los Luceros, Alicante</p>
+                <p>Teléfono: 123456789</p>
+            </div>
+            <div class="ubicacion">
+                <h3>Local 2</h3>
+                <p>Dirección: Ayuntamiento de Alicante</p>
+                <p>Teléfono: (+34) 123456789</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer">
+            <p>&copy; 2025. Todos los derechos reservados.</p>
+        </div>
+        <div class="svg">
+            <p>
+                <a href="http://jigsaw.w3.org/css-validator/check/referer">
+                    <img style="border:0;width:88px;height:31px"
+                        src="http://jigsaw.w3.org/css-validator/images/vcss"
+                        alt="¡CSS Válido!" />
+                </a>
+            </p>
+
+            <p>
+                <a href="http://jigsaw.w3.org/css-validator/check/referer">
+                    <img style="border:0;width:88px;height:31px"
+                        src="http://jigsaw.w3.org/css-validator/images/vcss-blue"
+                        alt="¡CSS Válido!" />
+                    </a>
+                </p>
+        </div>
+</footer>
+                        <!-- Contenedor del mapa -->
+    <div id="map" style="height: 400px; width: 100%;"></div>
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
