@@ -9,7 +9,7 @@ body{
     font-family: Arial, Helvetica, sans-serif;
     line-height: 1.5; /*Esto Crea un margen de lineas para que sea mucho mas legible*/
     color: #B0365A;
-    background-image: url(../Proyecto_personal/FondoRamen-ezgif.com-gif-to-webp-converter-1.webp);
+    background-image: url(FondoRamen-ezgif.com-gif-to-webp-converter-1.webp);
     background-size: cover;
     background-attachment: fixed; /*fija la imagen de fondo para que no se desplace con el contenido*/
     background-repeat: no-repeat;
